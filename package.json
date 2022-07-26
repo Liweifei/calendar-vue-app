@@ -1,0 +1,48 @@
+{
+  "name": "calendar-vue-app",
+  "description": "一款高效、简洁、功能丰富、宽度可自适应的app端考勤日历插件",
+  "version": "1.0.0",
+  "author": "Liweifei <1195669615@qq.com>",
+  "license": "MIT",
+  "private": false,
+  "main": "dist/calendar-vue-app.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "dependencies": {
+    "vue": "^2.5.11"
+  },
+  "keywords": [
+    "vue",
+    "angular",
+    "react",
+    "app",
+    "calendar",
+    "vue-calendar",
+    "vue app",
+    "日历插件",
+    "炫酷日历",
+    "考勤",
+    "app端日历",
+    "pc端日历"
+  ],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
