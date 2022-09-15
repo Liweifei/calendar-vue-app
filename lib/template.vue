@@ -307,7 +307,14 @@ export default {
     },
     checkIsWeekDate() {
       //same week date
-      const date = this.clickDay || this.today;
+      let date = this.today;
+      if (
+        this.clickDay &&
+        util.strToDateObj(this.clickDay).getMonth() ==
+          util.strToDateObj(this.today).getMonth()
+      ) {
+        date = this.clickDay;
+      }
       this.arrList.forEach((item) => {
         item.isSameWeek = this.isSameWeek(
           util.strToDateObj(item.date),
