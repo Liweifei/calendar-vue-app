@@ -1,4 +1,4 @@
-## vue-calendar-ui(当前版本 V1.0.2)
+## vue-calendar-ui(当前版本 V1.0.3)
 
 一款高效、简洁、功能丰富、宽度可自适应的 app 端考勤日历插件
 

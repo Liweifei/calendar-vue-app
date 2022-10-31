@@ -366,14 +366,22 @@ export default {
       this.getList();
       this.checkCurrentMonth();
     },
-    checkCurrentMonth() {
+    checkCurrentMonth(getDate) {
+      let io=false;
+      const today=getDate || this.today;
       if (this.futureDisabled) {
-        const currentMonth =
-          new Date().getFullYear() + "." + new Date().getMonth();
-        const showDate = util.strToDateObj(this.today);
-        const showMonth = showDate.getFullYear() + "." + showDate.getMonth(); //先初始化时间，保证为date对象
+        const currentMonth = new Date().getFullYear() + "." + this.getFormatMonth(new Date());
+        const showDate = util.strToDateObj(today);
+        const showMonth = showDate.getFullYear() + "." + this.getFormatMonth(showDate); //先初始化时间，保证为date对象
         this.arrowrDisabled = showMonth >= currentMonth;
+        io=showMonth > currentMonth;//点击日期时只能是判断传入的是否是下个月的
       }
+      return io;
+    },
+    getFormatMonth(date) {
+      let month = date.getMonth();
+      if (month < 10) month = `0${month}`;
+      return month;
     },
     jumpToMonth(date) {
       //点击获取指定月数据
@@ -394,8 +402,9 @@ export default {
     },
     handleClickDate(item) {
       //点击日期
-      const thisItem = { ...item };
+      // const thisItem = { ...item };
       const date = item.date;
+      if(this.checkCurrentMonth(date))return;//如果不允许查看未来日期
       this.clickDay = date;
       item.whitchMonth != "current" && this.jumpToMonth(date);
       this.$emit("onclickdate", item);
@@ -403,11 +412,7 @@ export default {
     },
     initAnimated() {
       eventUtil.bindEvent(this.$refs.vueCalendarUi, "slideUp", this.slideUp);
-      eventUtil.bindEvent(
-        this.$refs.vueCalendarUi,
-        "slideDown",
-        this.slideDown
-      );
+      eventUtil.bindEvent(this.$refs.vueCalendarUi, "slideDown", this.slideDown);
     },
     slideUp() {
       if (this.currentWeek) return;
@@ -425,11 +430,7 @@ export default {
   },
   beforeDestroy() {
     eventUtil.removeEvent(this.$refs.vueCalendarUi, "slideUp", this.slideUp);
-    eventUtil.removeEvent(
-      this.$refs.vueCalendarUi,
-      "slideDown",
-      this.slideDown
-    );
+    eventUtil.removeEvent(this.$refs.vueCalendarUi, "slideDown", this.slideDown);
   },
 };
 </script>
