@@ -1,4 +1,4 @@
-## vue-calendar-ui(当前版本 V1.0.3)
+## vue-calendar-ui(当前版本 V1.0.4)
 
 一款高效、简洁、功能丰富、宽度可自适应的 app 端考勤日历插件
 
@@ -37,28 +37,29 @@ Vue2.x
 
 ## Attribute
 
-| 属性                 | 类型    | 说明                               | 默认                 | 是否必传 |
-| -------------------- | ------- | ---------------------------------- | -------------------- | -------- |
-| animated             | Boolean | 是否可缩放                         | TRUE                 | FALSE    |
-| zoom                 | Boolean | 是否默认展开                       | FALSE                | FALSE    |
-| future-disabled      | Boolean | 是否不可跳转到未来月份             | FALSE                | FALSE    |
-| sunday-start         | Boolean | 日历是否周天开始                   | FALSE                | FALSE    |
-| titlebg-color        | String  | title 背景颜色(V2.X 版本已废弃)    | #f5f7fa              | FALSE    |
-| title-color          | String  | title 字体颜色                     | #333333              | FALSE    |
-| weeklabel-color      | String  | 礼拜几字体颜色                     | #9da5b1              | FALSE    |
-| arrow-color          | String  | 箭头颜色                           | #4b7df6              | FALSE    |
-| itembg-color         | String  | 默认日期背景颜色                   | #fff                 | FALSE    |
-| itemlabel-color      | String  | 默认日期字体颜色                   | #333333              | FALSE    |
-| birthdaybg-color     | String  | 当天生日的背景颜色                 | #FFF5E7              | FALSE    |
-| birthdaylabel-color  | String  | 当天生日的字体颜色                 | #333333              | FALSE    |
-| crrentdaybg-color    | String  | 今天的背景颜色                     | #4b7df6              | FALSE    |
-| crrentdaylabel-color | String  | 今天的字体颜色                     | #fff                 | FALSE    |
-| clickdaybg-color     | String  | 当前点击日期的背景颜色             | rgba(51, 51, 51,0.8) | FALSE    |
-| clickdaylabel-color  | String  | 当前点击日期的字体颜色             | #fff                 | FALSE    |
-| prev-color           | String  | 当月之前的日期颜色                 | #cccccc              | FALSE    |
-| next-color           | String  | 当月之后的日期颜色                 | #cccccc              | FALSE    |
-| birthday-arr         | Array   | 需要标记生日日期列表(下方详细说明) | []                   | FALSE    |
-| mark-arr             | Array   | 需要标记的日期列表(下方详细说明)   | []                   | FALSE    |
+| 属性                 | 类型              | 说明                               | 默认                 | 是否必传 |
+| -------------------- | ----------------- | ---------------------------------- | -------------------- | -------- |
+| animated             | Boolean           | 是否可缩放                         | TRUE                 | FALSE    |
+| zoom                 | Boolean           | 是否默认展开                       | FALSE                | FALSE    |
+| future-disabled      | Boolean           | 是否不可跳转到未来月份             | FALSE                | FALSE    |
+| sunday-start         | Boolean           | 日历是否周天开始                   | FALSE                | FALSE    |
+| titlebg-color        | String            | title 背景颜色(V2.X 版本已废弃)    | #f5f7fa              | FALSE    |
+| title-color          | String            | title 字体颜色                     | #333333              | FALSE    |
+| title-split          | Boolean 或 String | title 年月间隔                     | "-"                  | FALSE    |
+| weeklabel-color      | String            | 礼拜几字体颜色                     | #9da5b1              | FALSE    |
+| arrow-color          | String            | 箭头颜色                           | #4b7df6              | FALSE    |
+| itembg-color         | String            | 默认日期背景颜色                   | #fff                 | FALSE    |
+| itemlabel-color      | String            | 默认日期字体颜色                   | #333333              | FALSE    |
+| birthdaybg-color     | String            | 当天生日的背景颜色                 | #FFF5E7              | FALSE    |
+| birthdaylabel-color  | String            | 当天生日的字体颜色                 | #333333              | FALSE    |
+| crrentdaybg-color    | String            | 今天的背景颜色                     | #4b7df6              | FALSE    |
+| crrentdaylabel-color | String            | 今天的字体颜色                     | #fff                 | FALSE    |
+| clickdaybg-color     | String            | 当前点击日期的背景颜色             | rgba(51, 51, 51,0.8) | FALSE    |
+| clickdaylabel-color  | String            | 当前点击日期的字体颜色             | #fff                 | FALSE    |
+| prev-color           | String            | 当月之前的日期颜色                 | #cccccc              | FALSE    |
+| next-color           | String            | 当月之后的日期颜色                 | #cccccc              | FALSE    |
+| birthday-arr         | Array             | 需要标记生日日期列表(下方详细说明) | []                   | FALSE    |
+| mark-arr             | Array             | 需要标记的日期列表(下方详细说明)   | []                   | FALSE    |
 
 ## birthday-arr
 

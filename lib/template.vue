@@ -2,7 +2,7 @@
   <div class="vue-calendar-ui" ref="vueCalendarUi">
     <div class="cv-controlBox">
       <div class="cv-title" :style="{ color: titleColor }">
-        <span class="cv-date-text">{{ today | formatDate }}</span>
+        <span class="cv-date-text">{{ titleDesc }}</span>
         <i
           class="ivcufont ivcu-liulangengduo cv-arrowLeft"
           :style="{ color: arrowColor }"
@@ -137,6 +137,11 @@ export default {
       //title字体颜色，默认333333
       type: String,
       default: "#333333",
+    },
+    titleSplit: {
+      //title年月间隔，默认-
+      type: Boolean | String,
+      default: "-",
     },
     weeklabelColor: {
       //礼拜几字体颜色，默认9da5b1
@@ -276,6 +281,15 @@ export default {
       deep: true,
     },
   },
+  computed: {
+    titleDesc() {
+      const date = this.today;
+      const formatDate = `${date.getFullYear()}年${this.titleSplit || ""}${
+        date.getMonth() + 1
+      }月`;
+      return formatDate;
+    },
+  },
   created() {
     const sundayStart = this.sundayStart;
     util.sundayStart = sundayStart;
@@ -291,12 +305,6 @@ export default {
   },
   mounted() {
     this.animated && this.initAnimated();
-  },
-  filters: {
-    formatDate(date) {
-      const formatDate = `${date.getFullYear()}年-${date.getMonth() + 1}月`;
-      return formatDate;
-    },
   },
   methods: {
     getList() {
@@ -367,14 +375,15 @@ export default {
       this.checkCurrentMonth();
     },
     checkCurrentMonth(getDate) {
-      let io=false;
-      const today=getDate || this.today;
+      let io = false;
+      const today = getDate || this.today;
       if (this.futureDisabled) {
-        const currentMonth = new Date().getFullYear() + "." + this.getFormatMonth(new Date());
+        const currentMonth =
+          new Date().getFullYear() + "." + this.getFormatMonth(new Date());
         const showDate = util.strToDateObj(today);
         const showMonth = showDate.getFullYear() + "." + this.getFormatMonth(showDate); //先初始化时间，保证为date对象
         this.arrowrDisabled = showMonth >= currentMonth;
-        io=showMonth > currentMonth;//点击日期时只能是判断传入的是否是下个月的
+        io = showMonth > currentMonth; //点击日期时只能是判断传入的是否是下个月的
       }
       return io;
     },
@@ -404,7 +413,7 @@ export default {
       //点击日期
       // const thisItem = { ...item };
       const date = item.date;
-      if(this.checkCurrentMonth(date))return;//如果不允许查看未来日期
+      if (this.checkCurrentMonth(date)) return; //如果不允许查看未来日期
       this.clickDay = date;
       item.whitchMonth != "current" && this.jumpToMonth(date);
       this.$emit("onclickdate", item);
