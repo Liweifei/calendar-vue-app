@@ -424,6 +424,7 @@ export default {
       eventUtil.bindEvent(this.$refs.vueCalendarUi, "slideDown", this.slideDown);
     },
     slideUp() {
+      this.$emit("onChangeSlide", false);
       if (this.currentWeek) return;
       if (!this.clickDay) {
         this.jumpToDay(new Date());
@@ -433,8 +434,13 @@ export default {
       });
     },
     slideDown() {
+      this.$emit("onChangeSlide", true);
       if (!this.currentWeek) return;
       this.currentWeek = false;
+    },
+    slideChange(type) {
+      const event = type ? "slideDown" : "slideUp";
+      this[event]();
     },
   },
   beforeDestroy() {

@@ -1,11 +1,15 @@
 <template>
   <div class="main">
     <calendar-vue-app
+      ref="ca"
       :mark-arr="markArr"
       :birthday-arr="birthdayArr"
       future-disabled
       zoom
+      @onChangeSlide="handleSlide"
     ></calendar-vue-app>
+    <button @click="$refs.ca.slideChange(false)">关闭</button>
+    <button @click="$refs.ca.slideChange(true)">打开</button>
   </div>
 </template>
 
@@ -54,7 +58,11 @@ export default {
       eventUtil.removeEvent(document.body, "slideUp", fn);
     }, 10000);
   },
+  methods: {
+    handleSlide(type) {
+      console.log(type);
+    },
+  },
 };
 </script>
-<style>
-</style>
+<style></style>

@@ -1,4 +1,4 @@
-## vue-calendar-ui(当前版本 V1.0.4)
+## vue-calendar-ui(当前版本 V1.0.5)
 
 一款高效、简洁、功能丰富、宽度可自适应的 app 端考勤日历插件
 
@@ -85,13 +85,15 @@ Vue2.x
 | ------------- | -------------------- | --------------------------------------------------------------------- |
 | onclickdate   | 点击具体日期时的回调 | object，包含日期时间以及主动传递的 mark 值及是否当天有生日 isBirthday |
 | onchangemonth | 点击具体日期时的回调 | object，包含点击按钮切换类型 type 及 day1(切换到相应月份的 1 号)      |
+| onChangeSlide | 日历展开关闭时的回调 | Boolean，(与配置 zoom 相同，默认是 false 为关闭)                      |
 
 ## API
 
-| 函数名            | 说明                       | 参数格式               | 调用示例                                |
-| ----------------- | -------------------------- | ---------------------- | --------------------------------------- |
-| jumpToMonth(date) | 跳转到指定月份             | date 对象或 YYYY-MM-DD | this.$refs.cv.jumpToMonth("2020-03-12") |
-| jumpToDay(date)   | 跳转到指定日期并标记当前日 | date 对象或 YYYY-MM-DD | this.$refs.cv.jumpToDay("2020-03-12")   |
+| 函数名               | 说明                       | 参数格式               | 调用示例                                |
+| -------------------- | -------------------------- | ---------------------- | --------------------------------------- |
+| jumpToMonth(date)    | 跳转到指定月份             | date 对象或 YYYY-MM-DD | this.$refs.cv.jumpToMonth("2020-03-12") |
+| jumpToDay(date)      | 跳转到指定日期并标记当前日 | date 对象或 YYYY-MM-DD | this.$refs.cv.jumpToDay("2020-03-12")   |
+| slideChange(Boolean) | 展开或关闭日历             | true 打开，false 关闭  | this.$refs.cv.slideChange(true)         |
 
 ## Other
 

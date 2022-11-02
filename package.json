@@ -1,7 +1,7 @@
 {
   "name": "calendar-vue-app",
   "description": "一款高效、简洁、功能丰富、宽度可自适应的app端考勤日历插件",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Liweifei <1195669615@qq.com>",
   "license": "MIT",
   "private": false,
